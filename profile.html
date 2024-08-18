@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+<section id="main-header">
+    <div id="hero">
+        <div id="hero-navbar">
+            <h1>ShopWave</h1>
+            <div id="hero-searchbar">
+                <input type="search" name="" id="" placeholder=" Find your Favourite Products..." >
+                <button>Search</button>
+            </div>
+            <div id="cart">
+                <button id="account-profile">
+                    <img src="./images/user2.png" alt="user icon" height="50px">
+                    <p>  Account</p>
+                </button>
+                <button id="account-checkout">
+                    <img src="./images/cart2.png" alt="checkout-image" height="50px">
+                    <p>  My Cart </p>
+                </button>
+            </div>
+            
+            <div id="off-screen-menu">
+                <ul>
+                    <li> <a href="">CheckOut</a></li>
+                    <li> <a href="">Pcs&Laptop</a></li>
+                    <li> <a href="">Phones & Tablets</a></li>
+                    <li> <a href="">Gaming</a></li>
+                    <li> <a href="">Furniture</a></li>
+                    <li> <a href="">Mischellanous</a></li>
+                    
+                </ul>
+            </div>
+        
+            <div id="hamburger-menu"> 
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                
+            </div>
+            
+            
+        </div>
+        <div id="off-screen-text">
+            
+        </div>
+        <div id="hero-text-container">
+            <div id="hero-text">
+                <p>Discover, Shop, Enjoy - Anywhere, Anytime.</p>
+                <button onclick="button()">Browse Our Products</button>
+    
+            </div>
+            
+        </div>
+        <div class="hero-navigation">
+            <a href="laptop.html">Pcs & Laptops</a>
+            <a href="tablets.html">Phones & Tablets</a>
+            <a href="gaming.html">Gaming</a>
+            <a href="furniture.html">Furniture</a>
+            <a href="mischellanous.html">Mischellanous</a>
+
+        </div>
+        
+    </div>
+
+</section>
+<section id="profile-section">
+    
+    <div>
+        <div id="checkout-header">
+            <h2>CheckOut</h2>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+    
+</section>
+
+<section id="footer-section">
+    <footer>
+        <div id="footername">
+            <h3> ShopWave</h3>
+            <p id="time-copyright">Copyright  </p>
+        </div>
+        <div class="footer-details">
+            <p>Contact Information</p>
+            <p>ShopWave Inc.</p>
+            <p>123 Commerce St, Suite 100</p>
+            <p>City, State, 12345</p>
+            <p>Email: info@shopwave.com</p>
+            <p>Phone: 1-800-123-4567</p>
+        </div>
+        <div class="footer-details">
+            <p>Legal Information</p>
+            <ul>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-of-service">Terms of Service</a></li>
+                <li><a href="/cookie-policy">Cookie Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-details">
+            <p>Payment Methods </p>
+            <p>We accept the following payment methods:</p>
+            <ul>
+                <li>Visa</li>
+                <li>MasterCard</li>
+                <li>American Express</li>
+                <li>PayPal</li>
+                <li>Apple Pay</li>
+                <li>Google Pay</li>
+            </ul>
+        </div>
+        <div class="footer-details">
+            <p>Stay Updated</p>
+            <p>Sign up for our newsletter to receive the latest news, exclusive offers, and special promotions.</p>
+            <form action="/subscribe" method="post">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        
+
+    </footer>
+
+</section>
+<script>
+    function button(){
+        alert("Hello is it working??")
+
+    }
+
+    function date(){
+        const time = new Date().getFullYear()
+        
+        document.getElementById("time-copyright").innerHTML = "Copyright " + time
+    }
+    date()
+    const hamburger = document.querySelector("#hamburger-menu");
+    const navMenu = document.querySelector(".hero-navigation");
+    const hero = document.querySelector("#hero");
+
+    hamburger.addEventListener("click", () =>{
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        hero.classList.toggle("active");
+})
+    const account_profile = document.getElementById("account-profile");
+    account_profile.addEventListener("click", ()=>{
+        document.location.href= "/account"
+    })
+</script>
+</body>
+</html>
