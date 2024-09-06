@@ -1,25 +1,8 @@
+const allAddButtons = ["laptop-add1","laptop-add2","laptop-add3","laptop-add4","laptop-add5","laptop-add6"];
+const allRemoveButtons = ["laptop-remove1","laptop-remove2","laptop-remove3","laptop-remove4","laptop-remove5","laptop-remove6"];
+const allLaptopInput = ["laptop-number1","laptop-number2","laptop-number3","laptop-number4","laptop-number5","laptop-number6"];
+const allCartItems = ["cart-item1","cart-item2","cart-item3","cart-item4","cart-item5","cart-item6"];
 
-// let quantity = 0;
-// const addItemInput = document.getElementById("laptop-number1"); // Get the input element
-// const button1 = document.getElementById("laptop-add1");
-// const button2 =document.getElementById("laptop-remove1")
-
-// const increaseItem = () => {
-//     quantity++;
-//     addItemInput.value = quantity; // Update the input's value
-// };
-// const decreaseItem = () => {
-//     if(quantity > 0 ){
-//     quantity --;
-//     addItemInput.value = quantity
-//     }; // Update the input's value
-// };
-// button1.addEventListener("click", increaseItem);
-// button2.addEventListener("click",decreaseItem);
-
-const allAddButtons = ["laptop-add1","laptop-add2","laptop-add3","laptop-add4","laptop-add5","laptop-add6"]
-const allRemoveButtons = ["laptop-remove1","laptop-remove2","laptop-remove3","latopp-remove4","laptop-remove5","laptop-remove6"]
-const allLaptopInput = ["laptop-number1","laptop-number2","laptop-number3","laptop-number4","laptop-number5","laptop-number6"]
 
 
 for (let i = 0; i < allAddButtons.length; i ++){
@@ -44,7 +27,22 @@ for (let i = 0; i < allAddButtons.length; i ++){
 
 
 
+// Adding Item to cart
 
+for (let i = 0; i < allAddButtons.length; i ++){
+    const allCartItem = document.getElementById(allCartItems[i]);
+    const addButton = document.getElementById(allAddButtons[i]);
+    const addRemoveButton = document.getElementById(allRemoveButtons[i]);
+    const inputFields = document.getElementById(allLaptopInput[i]);
+
+    allCartItem.addEventListener("click",()=>{
+        let cartquantity = parseInt(inputFields.value);
+        let amountquantity = cartquantity *  
+    })
+
+
+}
+const cartamount = document.getElementById("") 
 
 
 
@@ -54,30 +52,39 @@ function date(){
     document.getElementById("time-copyright").innerHTML = "Copyright " + time
 }
 date()
+
+
 const hamburger = document.querySelector("#hamburger-menu");
 const navMenu = document.querySelector(".hero-navigation");
 const hero = document.querySelector("#hero");
-
-hamburger.addEventListener("click", () =>{
+const laptop = document.querySelector(".laptop-hero");
+// laptop page event click
+hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
-    hero.classList.toggle("active");
-})
-const account_profile = document.getElementById("account-profile");
-account_profile.addEventListener("click", ()=>{
-    document.location.href= "/profile.html"
-})
-buttonIDS = ["browse-laptop","browse-tablets","browse-gaming","browse-mischellanous","browse-furniture"]
-
-buttonIDS.forEach(id => {
-    const button = document.getElementById(id);
-
-    if(button){
-        button.addEventListener("click",()=>{
-            const page = id.replace("browse-",'');
-            document.location.href = `${page}.html`
-        })
-    }
+    
+    laptop.classList.toggle("active");
 });
+
+// index page
+const index_hamburger = document.que
+
+// const account_profile = document.getElementById("account-profile");
+// account_profile.addEventListener("click", ()=>{
+//     console.log("Button profile Clicked")
+//     document.location.href= "/profile.html"
+// })
+// buttonIDS = ["browse-laptop","browse-tablets","browse-gaming","browse-mischellanous","browse-furniture"]
+
+// buttonIDS.forEach(id => {
+//     const button = document.getElementById(id);
+
+//     if(button){
+//         button.addEventListener("click",()=>{
+//             const page = id.replace("browse-",'');
+//             document.location.href = `${page}.html`
+//         })
+//     }
+// });
 
 // Section for adding Items 
