@@ -618,12 +618,22 @@ footer li {
     margin: 15px 0px 10px 0px;
 }
 
+/* Testing cart rows - Delete Later */
+#cart-rows2 {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .cart-item {
     display: flex;
+    /* justify-content: space-evenly;
+    margin: 10px 0px; */
 }
 
 #cart-picture img {
     height: 100px;
+    width: 150px;
     border-radius: 5%;
 }
 

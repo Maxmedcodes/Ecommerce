@@ -33,7 +33,9 @@ for (let i = 0; i < allAddButtons.length; i ++){
     
 }
 
-
+function geturl(url){
+    return url.split("/").pop();
+};
 
 // Adding Item to cart
 
@@ -45,12 +47,14 @@ for (let i = 0; i < allAddButtons.length; i ++){
     const inputFields = document.getElementById(allLaptopInput[i]);
     const itemPrice = document.getElementById(allItemPrices[i]);
     const productNames = document.getElementById(allProductNames[i]);
+    let productName;
     if(productNames){
-        const productName = document.getElementById(allProductNames[i]).innerText
+         productName = document.getElementById(allProductNames[i]).innerText
     }
     const item_imgs = document.getElementById(itemImages[i]);
+    let item_img;
     if (item_imgs){
-        const item_img = document.getElementById(itemImages[i]).src;
+         item_img = document.getElementById(itemImages[i]).src;
     } 
     if (allCartItem){
         allCartItem.addEventListener("click",()=>{
@@ -85,9 +89,7 @@ for (let i = 0; i < allAddButtons.length; i ++){
 
 }
 }
-function geturl(url){
-    return url.split("/").pop();
-};
+
 
 // Load cart from localStorage when the page loads
 function loadCart() {
@@ -145,8 +147,9 @@ window.addEventListener('load', () => {
     let checkout_cart = storedCart ? JSON.parse(storedCart) : [];
 
     // Clear previous items
-    cartrows.innerHTML = ''; // Optional: Clears existing items
-
+    if (cartrows){
+        cartrows.innerHTML = ''; // Optional: Clears existing items
+    }    
     // Check if there are items in the cart
     if (checkout_cart.length > 0) {
         checkout_cart.forEach(item => {
@@ -161,7 +164,9 @@ window.addEventListener('load', () => {
             cartrows.appendChild(newCartItem);
         });
     } else {
+        if(cartrows){
         cartrows.innerHTML = '<div>Your cart is empty!</div>'; // Message for empty cart
+        }
     }
 });
 
@@ -169,19 +174,21 @@ window.addEventListener('load', () => {
 
 const account_icon = document.getElementById("user-account");
 const checkout_icon = document.getElementById("checkout-cart");
-
+if (account_icon){
 account_icon.addEventListener("click", ()=>{
     window.location.href="/index.html"
 });
+}
+if(checkout_icon){
 checkout_icon.addEventListener("click",()=>{
     window.location.href="/cart.html"
 });
-
-const index_profile = document.getElementById("account-profile");
-index_profile.addEventListener("click", ()=>{
-    console.log("Index Button profile Clicked")
+}
+// const index_profile = document.getElementById("account-profile");
+// index_profile.addEventListener("click", ()=>{
+//     console.log("Index Button profile Clicked")
     
-})
+// })
 buttonIDS = ["browse-laptop","browse-tablets","browse-gaming","browse-mischellanous","browse-furniture"]
 
 buttonIDS.forEach(id => {
