@@ -62,7 +62,9 @@ for (let i = 0; i < allAddButtons.length; i ++){
             let storedCart = localStorage.getItem('cart');
             let checkout_cart = storedCart ? JSON.parse(storedCart) : [];  
         // If no cart exists, start with an empty array
-    
+            let existingItem = checkout_cart.find(item=> item.Item === productName);
+
+            
             let cartquantity = parseInt(inputFields.value);
             let price = itemPrice.innerText; 
             let numericPrice = parseInt(price.replace("$", " "));
@@ -70,16 +72,25 @@ for (let i = 0; i < allAddButtons.length; i ++){
             let imgUrl = geturl(item_img);
             
             
-            
-        
-        // Add the new item to the cart array
-        checkout_cart.push({
+            console.log(imgUrl)
+
+            if(existingItem){
+                existingItem.Quantity += cartquantity
+                existingItem.Price += amountquantity
+            } else{
+                // Add the new item to the cart array
+            checkout_cart.push({
             Item: productName, 
             Quantity: cartquantity, 
             Price: amountquantity, 
             Image: imgUrl
-        });    
-    
+        });  
+            }
+        
+          
+        // Alert item has been added to CARtT
+
+        alert("Item(s) has been added to Cart")
         // Save the updated cart back to localStorage
         localStorage.setItem('cart', JSON.stringify(checkout_cart));
         });
@@ -89,6 +100,19 @@ for (let i = 0; i < allAddButtons.length; i ++){
 
 }
 }
+// Checkout page - Remove item from Cart
+
+// let checkoutCartRemoveButton = document.getElementsByClassName("cartbutton-remove");
+// let checkoutCartItem = 
+
+// function CartRemoveItem(){
+//     checkoutCartRemoveButton.addEventListener("click", ()=>{
+//     let storedCart = localStorage.getItem('cart');
+//     let checkout_cart = storedCart ? JSON.parse(storedCart) : [];  
+    
+
+// })
+// }
 
 
 // Load cart from localStorage when the page loads
@@ -152,23 +176,113 @@ window.addEventListener('load', () => {
     }    
     // Check if there are items in the cart
     if (checkout_cart.length > 0) {
-        checkout_cart.forEach(item => {
-            const newCartItem = document.createElement('div');
-            newCartItem.classList.add('cart-item');
-            newCartItem.innerHTML = `
-                <div id="cart-picture"><img src="./images/${item.Image}" alt="${item.Item}"></div>
-                <div id="cart-item">${item.Item}</div>
-                <div id="cart-numberofitems">${item.Quantity}</div>
-                <div id="cart-total-price">£${item.Price}</div>
+        const cartTable = document.querySelector("#cart-rows2 table");
+    
+        checkout_cart.forEach((item,index) => {
+            // Create a new table row
+            const newRow = document.createElement('tr');
+    
+            // Set inner HTML with item details
+            newRow.innerHTML = `
+                <td id="first-table">
+                    <div id="cart-picture">
+                        <img src="./images/${item.Image}" alt="${item.Item}">
+                        <div id="cart-picture-description">
+                            <p>${item.Item}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                 <div id="cart-quantity">
+                    <button id="cart-add" >+</button>
+                <div id="cart-numberofitems">
+                <input type="number" name="" id="cart-quantity" value="${item.Quantity}">
+                </div>
+                <button id="cart-minus">-</button>
+                </div>
+                </td>
+                <td><div id="cart-total-price">£${item.Price}</div></td>
+                <td><button id="cartbutton-remove" data-index=${index}>Remove</button></td>
             `;
-            cartrows.appendChild(newCartItem);
+    
+            // Append the new row to the cart table
+            if(cartTable){
+            cartTable.appendChild(newRow);
+            }
         });
-    } else {
+    }else {
         if(cartrows){
         cartrows.innerHTML = '<div>Your cart is empty!</div>'; // Message for empty cart
         }
     }
+    // Removing Cart Item
+    
+
+        
+    
 });
+
+var cartremovebutton = document.getElementById("cartbutton-remove");
+if(cartremovebutton){
+    cartremovebutton.addEventListener("click",(event)=>{
+        let itemIndex2= event.target.getAttribute("data-index");
+        console.log("cartebutton reomve")
+    
+    })
+}
+
+function renderCartItems(){
+    // Retrieve the cart items from localStorage
+    let storedCart = localStorage.getItem('cart');
+    let checkout_cart = storedCart ? JSON.parse(storedCart) : [];
+
+    // Locate the table where items will be displayed
+    const cartTable = document.querySelector("#cart-rows2 table");
+
+    // Clear existing rows (but keep the table heading)
+    cartTable.innerHTML = `
+        <tr id="table-heading">
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Button</th>
+        </tr>
+    `;
+
+    // Check if there are items in the cart
+    if (checkout_cart.length > 0) {
+        // Loop through the cart items and create rows
+        checkout_cart.forEach((item, index) => {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>
+                    <div id="cart-picture">
+                        <img src="./images/${item.Image}" alt="${item.Item}">
+                        <div id="cart-picture-description">
+                            <p>${item.Item}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>${item.Quantity}</td>
+                <td>£${item.Price}</td>
+                <td>
+                    <button class="cartbutton-remove" data-index="${index}">Remove</button>
+                </td>
+            `;
+
+            // Append the new row to the table
+            cartTable.appendChild(newRow);
+        });
+    } else {
+        // If the cart is empty, display a message
+        const cartrows = document.getElementById("cart-rows2");
+        cartrows.innerHTML = '<div>Your cart is empty!</div>';
+    }
+
+}
+
+
+
 
 // Adding Link to Checkout Page
 
