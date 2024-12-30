@@ -184,25 +184,26 @@ window.addEventListener('load', () => {
     
             // Set inner HTML with item details
             newRow.innerHTML = `
-                <td id="first-table">
-                    <div id="cart-picture">
+                <td class="first-table">
+                    <div class="cart-picture">
                         <img src="./images/${item.Image}" alt="${item.Item}">
-                        <div id="cart-picture-description">
+                        <div class="cart-picture-description">
                             <p>${item.Item}</p>
                         </div>
                     </div>
                 </td>
                 <td>
-                 <div id="cart-quantity">
-                    <button id="cart-add" >+</button>
-                <div id="cart-numberofitems">
-                <input type="number" name="" id="cart-quantity" value="${item.Quantity}">
+                 <div class="cart-quantity">
+                    <button class="cart-add" >+</button>
+                <div class="cart-numberofitems">
+                <input type="number" name=${item.quantity} class="cart-quantity" value="${item.Quantity}">
                 </div>
-                <button id="cart-minus">-</button>
+                <button class="cart-minus">-</button>
                 </div>
                 </td>
-                <td><div id="cart-total-price">£${item.Price}</div></td>
-                <td><button id="cartbutton-remove" data-index=${index}>Remove</button></td>
+                <td><div class="cart-total-price">£${item.Price}</div></td>
+                <td><button class="cartbutton-remove" data-index=${index}>Remove</button></td>
+                
             `;
     
             // Append the new row to the cart table
@@ -210,25 +211,66 @@ window.addEventListener('load', () => {
             cartTable.appendChild(newRow);
             }
         });
+        // Add div for Cart Total
+        const CartTotalDiv = document.querySelector("#cart-rows2");
+        CartTotalDiv.append(document.createElement("hr"))
+        const totalPriceDiv = document.createElement("DIV");
+        totalPriceDiv.setAttribute("id","cart-total");
+        const allCartPrices = JSON.parse(localStorage.getItem("cart"));
+        
+        
+        const cartPricesOnly = allCartPrices.map( (x)=> x.Price)
+        const initialValue = 0;
+        let  cartTotalPrices = cartPricesOnly.reduce((accumulator,currentValue)=> accumulator+ currentValue ,initialValue, )
+        let totalCartPrice = cartTotalPrices ;
+        
+        console.log(`THis is allCartPrices --> ${totalCartPrice}`)
+        
+        totalPriceDiv.innerHTML= `<p> Total :    £${totalCartPrice} </p>`
+        CartTotalDiv.append(totalPriceDiv);
+
+        // Increasing Items and price at Checkout
+
+        // Removing Items 
+        const cartRemoveButtons = document.querySelectorAll(".cartbutton-remove");
+        cartRemoveButtons.forEach( button =>{
+            button.addEventListener("click", (event) =>{
+                const itemRemoveIndex = event.target.getAttribute("data-index");
+                console.log("Cart ITem removed item index no: ",itemRemoveIndex)
+
+                // remove item form cart
+                checkout_cart.splice(itemRemoveIndex,1)
+
+                // update local storage
+                localStorage.setItem("cart", JSON.stringify(checkout_cart))
+
+                // Reload page to show new Cart
+
+                window.location.reload();
+            })
+        })
+
     }else {
         if(cartrows){
         cartrows.innerHTML = '<div>Your cart is empty!</div>'; // Message for empty cart
         }
     }
-    // Removing Cart Item
+    
     
 
         
     
 });
 
-var cartremovebutton = document.getElementById("cartbutton-remove");
-if(cartremovebutton){
-    cartremovebutton.addEventListener("click",(event)=>{
+var cartremovebutton = document.getElementsByClassName("cartbutton-remove");
+if (cartremovebutton){
+for (let i=0; cartremovebutton.length; i++){
+    cartremovebutton[i].addEventListener("click",(event)=>{
         let itemIndex2= event.target.getAttribute("data-index");
-        console.log("cartebutton reomve")
+        console.log("cartebutton remove")
     
     })
+}
 }
 
 function renderCartItems(){
