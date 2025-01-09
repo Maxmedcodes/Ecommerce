@@ -194,15 +194,15 @@ window.addEventListener('load', () => {
                 </td>
                 <td>
                  <div class="cart-quantity">
-                    <button class="cart-add" >+</button>
+                    <button type="button" class="cart-add" data-addIndex=${index}>+</button>
                 <div class="cart-numberofitems">
                 <input type="number" name=${item.quantity} class="cart-quantity" value="${item.Quantity}">
                 </div>
-                <button class="cart-minus">-</button>
+                <button type="button" class="cart-minus" data-minusIndex=${index}>-</button>
                 </div>
                 </td>
                 <td><div class="cart-total-price">£${item.Price}</div></td>
-                <td><button class="cartbutton-remove" data-index=${index}>Remove</button></td>
+                <td><button type="button" class="cartbutton-remove" data-index=${index}>Remove</button></td>
                 
             `;
     
@@ -217,6 +217,7 @@ window.addEventListener('load', () => {
         const totalPriceDiv = document.createElement("DIV");
         totalPriceDiv.setAttribute("id","cart-total");
         const allCartPrices = JSON.parse(localStorage.getItem("cart"));
+        const cartTotalDivButton = document.querySelector("#cart-total");
         
         
         const cartPricesOnly = allCartPrices.map( (x)=> x.Price)
@@ -228,8 +229,57 @@ window.addEventListener('load', () => {
         
         totalPriceDiv.innerHTML= `<p> Total :    £${totalCartPrice} </p>`
         CartTotalDiv.append(totalPriceDiv);
+        
+        const totalCartButton = document.createElement("button");
+        totalCartButton.setAttribute("id","checkout-Totalbutton");
+        totalCartButton.innerHTML = "Checkout";
+        CartTotalDiv.append(totalCartButton)
+        
 
         // Increasing Items and price at Checkout
+        const cartADD = document.querySelectorAll(".cart-add");
+        cartADD.forEach( button =>{
+            button.addEventListener("click", (event)=>{
+                const cartAddIndex = event.target.getAttribute("data-addIndex");
+                const checkout_store = localStorage.getItem("cart");
+                const cart_check = JSON.parse(checkout_store);
+                
+                
+                const currentPrice =  cart_check[cartAddIndex].Price
+                const currentQuantity = cart_check[cartAddIndex].Quantity
+                const unitPrice = currentPrice / currentQuantity
+                cart_check[cartAddIndex].Quantity ++;
+                cart_check[cartAddIndex].Price += unitPrice;
+                localStorage.setItem("cart",JSON.stringify(cart_check));
+                window.location.reload();
+            })
+            ;
+        });
+        const cartMinus = document.querySelectorAll(".cart-minus")
+        cartMinus.forEach(button =>{
+            button.addEventListener("click", (event)=>{
+                const cartMinusIndex = event.target.getAttribute("data-minusIndex")
+                const checkout_store = localStorage.getItem("cart");
+                const cart_check = JSON.parse(checkout_store);
+                if(cart_check[cartMinusIndex].Quantity > 0 ){
+                    
+                    const currentPrice =  cart_check[cartMinusIndex].Price
+                    const currentQuantity = cart_check[cartMinusIndex].Quantity
+                    const unitPrice = currentPrice / currentQuantity
+                    cart_check[cartMinusIndex].Quantity --; 
+                    cart_check[cartMinusIndex].Price -= unitPrice
+                     
+                    
+                    localStorage.setItem("cart",JSON.stringify(cart_check));
+                
+                
+                    window.location.reload();
+                }else{
+                    console.log("Item Quantity can not be less than 0")
+                }
+                
+            })
+        })
 
         // Removing Items 
         const cartRemoveButtons = document.querySelectorAll(".cartbutton-remove");
