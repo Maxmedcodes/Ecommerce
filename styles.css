@@ -714,9 +714,51 @@ td {
 #cart-total {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     margin-top: 20px;
     margin-right: 350px;
 }
+
+/* checkout button */
+#checkout-Totalbutton {
+    width: 100px;
+    background-color: rgb(0, 252, 21);
+    color: rgb(25, 25, 112);
+    font-size: large;
+    margin: 0 0 0 20px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+/* finished */
+#outer-finish {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#finished {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    text-align: center;
+    background-color: rgb(141, 145, 142);
+    border-radius: 50%;
+    border: 5px solid green;
+    color: green;
+    height: 100px;
+    width: 100px;
+}
+
+#finished-text {
+    font-size: 20px;
+}
+
+#outer-text {
+    display: flex;
+}
+
 
 /* Media Queries */
 

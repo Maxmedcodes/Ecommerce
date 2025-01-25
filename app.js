@@ -217,7 +217,7 @@ window.addEventListener('load', () => {
         const totalPriceDiv = document.createElement("DIV");
         totalPriceDiv.setAttribute("id","cart-total");
         const allCartPrices = JSON.parse(localStorage.getItem("cart"));
-        const cartTotalDivButton = document.querySelector("#cart-total");
+        const cartTotalDivButton = document.getElementById("cart-total");
         
         
         const cartPricesOnly = allCartPrices.map( (x)=> x.Price)
@@ -232,8 +232,20 @@ window.addEventListener('load', () => {
         
         const totalCartButton = document.createElement("button");
         totalCartButton.setAttribute("id","checkout-Totalbutton");
+        totalCartButton.setAttribute("type","reset");
         totalCartButton.innerHTML = "Checkout";
-        CartTotalDiv.append(totalCartButton)
+    
+        totalPriceDiv.append(totalCartButton);
+
+        // Checkout Button Click Event
+        totalCartButton.addEventListener("click",()=>{
+            const checkmark = document.getElementById("finished");
+            checkmark.innerHTML = "&#10004";
+            localStorage.clear();
+            console.log("Checkout Button Clicked")
+            window.location.reload();
+        });
+        
         
 
         // Increasing Items and price at Checkout
