@@ -238,14 +238,24 @@ window.addEventListener('load', () => {
         totalPriceDiv.append(totalCartButton);
 
         // Checkout Button Click Event
+        const checkmark = document.getElementById("outer-finish");
         totalCartButton.addEventListener("click",()=>{
-            const checkmark = document.getElementById("finished");
-            checkmark.innerHTML = "&#10004";
             localStorage.clear();
-            console.log("Checkout Button Clicked")
             window.location.reload();
+            
+            checkmark.setAttribute("style","display:flex")
+            
+            
+            
         });
         
+        // Completed Checkout logo off when there is no item in cart
+        // const completedCheckmark = document.getElementById("finished");
+        // const completedCheckmarkText = document.getElementById("outer-text");
+        // if(checkout_cart.length > 0){
+        //     completedCheckmark.setAttribute("style","display:none");
+        //     completedCheckmarkText.setAttribute("style","display:none");
+        // }
         
 
         // Increasing Items and price at Checkout

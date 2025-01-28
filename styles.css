@@ -732,7 +732,11 @@ td {
 
 /* finished */
 #outer-finish {
-    display: flex;
+    display: none;
+    padding: 20px 0 20px 0;
+
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     justify-content: center;
 }
