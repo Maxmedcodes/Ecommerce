@@ -48,7 +48,7 @@ body {
 }
 
 #hero-searchbar input {
-    -webkit-appearance: none;
+
     height: 30px;
     border-radius: 4rem;
     width: 300px;
@@ -485,11 +485,7 @@ footer li {
     margin: auto;
 }
 
-#single-div {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-}
+
 
 #card-img {
     display: flex;
@@ -839,7 +835,7 @@ td {
         margin: 0 20px;
     }
 
-    .competitor-pairs {}
+
 
     #hero-navbar {
         width: 100%;
@@ -1002,12 +998,7 @@ td {
         max-width: 100%;
     }
 
-    body {
 
-        /* width: 100vw;
-        height: 100vh;
-        border: 1px solid red; */
-    }
 
     #non-index-space {
         display: none;
@@ -1070,7 +1061,7 @@ td {
         margin: 0 20px;
     }
 
-    .competitor-pairs {}
+
 
     #hero-navbar {
         width: 100%;
@@ -1293,7 +1284,7 @@ td {
         margin: 0 20px;
     }
 
-    .competitor-pairs {}
+
 
     #hero-navbar {
         width: 100%;
@@ -1451,12 +1442,7 @@ td {
         max-width: 100%;
     }
 
-    body {
 
-        /* width: 100vw;
-        height: 100vh;
-        border: 1px solid red; */
-    }
 
     #non-index-space {
         display: none;
@@ -1511,7 +1497,7 @@ td {
         margin: 0 20px;
     }
 
-    .competitor-pairs {}
+
 
     #hero-navbar {
         width: 100%;
