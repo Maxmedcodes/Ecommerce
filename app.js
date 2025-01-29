@@ -239,23 +239,22 @@ window.addEventListener('load', () => {
 
         // Checkout Button Click Event
         const checkmark = document.getElementById("outer-finish");
+        const cartTable2 = document.querySelector("#cart-rows2 table");
         totalCartButton.addEventListener("click",()=>{
+            
+            cartTable2.setAttribute("style","display:none")
             localStorage.clear();
-            window.location.reload();
             
             checkmark.setAttribute("style","display:flex")
+            setTimeout(()=>{
+                window.location.reload()
+            },3000)
             
             
             
         });
         
-        // Completed Checkout logo off when there is no item in cart
-        // const completedCheckmark = document.getElementById("finished");
-        // const completedCheckmarkText = document.getElementById("outer-text");
-        // if(checkout_cart.length > 0){
-        //     completedCheckmark.setAttribute("style","display:none");
-        //     completedCheckmarkText.setAttribute("style","display:none");
-        // }
+        
         
 
         // Increasing Items and price at Checkout
@@ -283,7 +282,7 @@ window.addEventListener('load', () => {
                 const cartMinusIndex = event.target.getAttribute("data-minusIndex")
                 const checkout_store = localStorage.getItem("cart");
                 const cart_check = JSON.parse(checkout_store);
-                if(cart_check[cartMinusIndex].Quantity > 0 ){
+                if(cart_check[cartMinusIndex].Quantity >= 1 ){
                     
                     const currentPrice =  cart_check[cartMinusIndex].Price
                     const currentQuantity = cart_check[cartMinusIndex].Quantity
