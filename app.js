@@ -248,7 +248,7 @@ window.addEventListener('load', () => {
             checkmark.setAttribute("style","display:flex")
             setTimeout(()=>{
                 window.location.reload()
-            },3000)
+            },2500)
             
             
             
