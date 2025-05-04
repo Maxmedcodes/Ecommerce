@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Pcs&Laptops</title>
-    <script src="app.js" defer ></script>
+    <script  type="module" src="app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body id="laptop-page">
     <section id="laptop-section-header">
@@ -54,11 +55,11 @@
             </div>
             
             <div class="hero-navigation">
-                <a href="laptop.html">Pcs & Laptops</a>
-                <a href="tablets.html">Phones & Tablets</a>
-                <a href="gaming.html">Gaming</a>
-                <a href="furniture.html">Furniture</a>
-                <a href="mischellanous.html">Mischellanous</a>
+                <a href="Pcs&Laptops.html">Pcs & Laptops</a>
+                <a href="Phones&Tablets.html">Phones & Tablets</a>
+                <a href="Gaming.html">Gaming</a>
+                <a href="Furniture.html">Furniture</a>
+                <a href="Mischellanous.html">Mischellanous</a>
     
             </div>
             
@@ -73,234 +74,7 @@
    <div id="product-items">
 
    
-    <div id="product-segments">
-        <div id="single-div">
-            <div id="card-img">
-                <img src="./images/sofa.jpg" alt="" id="item-img1">
-            </div>
-            
-            <div id="product-code">
-                <p>Product Code</p>
-                <p>4.5 &#x2B50</p>
-            </div>
-            <div id="product-name1">
-                <h4 >Sofa </h4>
-            </div>
-            <div id="product-description"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Eius vitae modi necessitatibus neque dolorem iure minus pariatur. 
-                    Numquam nesciunt magnam quae iste inventore pariatur, in optio debitis, 
-                    aperiam officiis asperiores, accusantium error perferendis deleniti. Alias optio velit unde voluptatibus suscipit, atque esse, voluptatem 
-                    dignissimos cumque consequuntur at nobis porro aspernatur?</p>
-            </div>
-            
-        </div>
-        <div id="product-price">
-            <p id="item-price1" >$320</p>
-            <p>$499</p>
-        </div>
-        <div id="product-cart">
-            <button id="laptop-add1">+</button>
-            <input  name="" id="laptop-number1" value="0" >
-            <button id="laptop-remove1">-</button>
-            <button id="cart-item1"> <span> &#x1F6D2</span> Add to Cart</button>
-            
-        </div>
-        
-        
-        
-
-    </div>
-    <div id="product-segments">
-        <div id="single-div">
-            <div id="card-img">
-                <img src="./images/furniture-2.jpg" alt="iphone 13" id="item-img2">
-            </div>
-            
-            <div id="product-code">
-                <p>Product Code</p>
-                <p>4.5 &#x2B50</p>
-            </div>
-            <div id="product-name2">
-                <h4>Furniture Set (with Lamp) </h4>
-            </div>
-            <div id="product-description"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Eius vitae modi necessitatibus neque dolorem iure minus pariatur. 
-                    Numquam nesciunt magnam quae iste inventore pariatur, in optio debitis, 
-                    aperiam officiis asperiores, accusantium error perferendis deleniti. Alias optio velit unde voluptatibus suscipit, atque esse, voluptatem 
-                    dignissimos cumque consequuntur at nobis porro aspernatur?</p>
-            </div>
-            
-        </div>
-        <div id="product-price">
-            <p id="item-price2">$820</p>
-            <p>$999</p>
-        </div>
-        <div id="product-cart">
-            <button id="laptop-add2">+</button>
-            <input  name="" id="laptop-number2" value="0" >
-            <button id="laptop-remove2">-</button>
-            <button id="cart-item2"> <span> &#x1F6D2</span> Add to Cart</button>
-            
-        </div>
-        
-        
-        
-
-    </div>
-    <div id="product-segments">
-        <div id="single-div">
-            <div id="card-img">
-                <img src="./images/chair.jpg" alt="" id="item-img3">
-            </div>
-            
-            <div id="product-code">
-                <p>Product Code</p>
-                <p>4.5 &#x2B50</p>
-            </div>
-            <div id="product-name3">
-                <h4>Modern ArmChair </h4>
-            </div>
-            <div id="product-description"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Eius vitae modi necessitatibus neque dolorem iure minus pariatur. 
-                    Numquam nesciunt magnam quae iste inventore pariatur, in optio debitis, 
-                    aperiam officiis asperiores, accusantium error perferendis deleniti. Alias optio velit unde voluptatibus suscipit, atque esse, voluptatem 
-                    dignissimos cumque consequuntur at nobis porro aspernatur?</p>
-            </div>
-            
-        </div>
-        <div id="product-price">
-            <p id="item-price3">$150</p>
-            <p>$299</p>
-        </div>
-        <div id="product-cart">
-            <button id="laptop-add3">+</button>
-            <input  name="" id="laptop-number3" value="0" >
-            <button id="laptop-remove3">-</button>
-            <button id="cart-item3"> <span> &#x1F6D2</span> Add to Cart</button>
-            
-        </div>
-        
-        
-        
-
-    </div>
-    <div id="product-segments">
-        <div id="single-div">
-            <div id="card-img">
-                <img src="./images/dining-table.jpg" alt="" id="item-img4">
-            </div>
-            
-            <div id="product-code">
-                <p>Product Code</p>
-                <p>4.5 &#x2B50</p>
-            </div>
-            <div id="product-name4">
-                <h4>Dining Table and Chair </h4>
-            </div>
-            <div id="product-description"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Eius vitae modi necessitatibus neque dolorem iure minus pariatur. 
-                    Numquam nesciunt magnam quae iste inventore pariatur, in optio debitis, 
-                    aperiam officiis asperiores, accusantium error perferendis deleniti. Alias optio velit unde voluptatibus suscipit, atque esse, voluptatem 
-                    dignissimos cumque consequuntur at nobis porro aspernatur?</p>
-            </div>
-            
-        </div>
-        <div id="product-price">
-            <p id="item-price4">$720</p>
-            <p>$899</p>
-        </div>
-        <div id="product-cart">
-            <button id="laptop-add4">+</button>
-            <input  name="" id="laptop-number4" value="0" >
-            <button id="laptop-remove4">-</button>
-            <button id="cart-item4"> <span> &#x1F6D2</span> Add to Cart</button>
-            
-        </div>
-        
-        
-        
-
-    </div>
-    <div id="product-segments">
-        <div id="single-div">
-            <div id="card-img">
-                <img src="./images/corner-sofa.jpg" alt="" id="item-img5">
-            </div>
-            
-            <div id="product-code">
-                <p>Product Code</p>
-                <p>4.5 &#x2B50</p>
-            </div>
-            <div id="product-name5">
-                <h4>Corner Sofa </h4>
-            </div>
-            <div id="product-description"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Eius vitae modi necessitatibus neque dolorem iure minus pariatur. 
-                    Numquam nesciunt magnam quae iste inventore pariatur, in optio debitis, 
-                    aperiam officiis asperiores, accusantium error perferendis deleniti. Alias optio velit unde voluptatibus suscipit, atque esse, voluptatem 
-                    dignissimos cumque consequuntur at nobis porro aspernatur?</p>
-            </div>
-            
-        </div>
-        <div id="product-price">
-            <p id="item-price5">$220</p>
-            <p>499</p>
-        </div>
-        <div id="product-cart">
-            <button id="laptop-add5">+</button>
-            <input  name="" id="laptop-number5" value="0" >
-            <button id="laptop-remove5">-</button>
-            <button id="cart-item5"> <span> &#x1F6D2</span> Add to Cart</button>
-            
-        </div>
-        
-        
-        
-
-    </div>
-    <div id="product-segments">
-        <div id="single-div">
-            <div id="card-img">
-                <img src="./images/furniture-set.jpg" alt="" id="item-img6">
-            </div>
-            
-            <div id="product-code">
-                <p>Product Code</p>
-                <p>4.5 &#x2B50</p>
-            </div>
-            <div id="product-name6">
-                <h4>Living Room Furniture Set </h4>
-            </div>
-            <div id="product-description"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Eius vitae modi necessitatibus neque dolorem iure minus pariatur. 
-                    Numquam nesciunt magnam quae iste inventore pariatur, in optio debitis, 
-                    aperiam officiis asperiores, accusantium error perferendis deleniti. Alias optio velit unde voluptatibus suscipit, atque esse, voluptatem 
-                    dignissimos cumque consequuntur at nobis porro aspernatur?</p>
-            </div>
-            
-        </div>
-        <div id="product-price">
-            <p id="item-price6">$720</p>
-            <p>$899</p>
-        </div>
-        <div id="product-cart">
-            <button id="laptop-add6">+</button>
-            <input  name="" id="laptop-number6" value="0" >
-            <button id="laptop-remove6">-</button>
-            <button id="cart-item6"> <span> &#x1F6D2</span> Add to Cart</button>
-            
-        </div>
-        
-        
-        
-
-    </div>
+    
 </div>
  </section>
  <section id="laptop-footer-section">

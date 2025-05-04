@@ -392,6 +392,10 @@ footer li {
     text-decoration: underline;
 }
 
+#footername {
+    margin: 0px 15px;
+}
+
 #footername p {
     font-size: smaller;
 }
@@ -400,6 +404,7 @@ footer li {
     padding: 0.3rem;
     border-radius: 4rem;
     border-style: hidden;
+    margin-top: 10px;
 }
 
 .footer-details input {

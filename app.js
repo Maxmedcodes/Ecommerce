@@ -1,3 +1,7 @@
+
+
+
+
 const allAddButtons = ["laptop-add1","laptop-add2","laptop-add3","laptop-add4","laptop-add5","laptop-add6"];
 const allRemoveButtons = ["laptop-remove1","laptop-remove2","laptop-remove3","laptop-remove4","laptop-remove5","laptop-remove6"];
 const allLaptopInput = ["laptop-number1","laptop-number2","laptop-number3","laptop-number4","laptop-number5","laptop-number6"];
@@ -416,7 +420,7 @@ checkout_icon.addEventListener("click",()=>{
 //     console.log("Index Button profile Clicked")
     
 // })
-buttonIDS = ["browse-laptop","browse-tablets","browse-gaming","browse-mischellanous","browse-furniture"]
+const buttonIDS = ["browse-laptop","browse-tablets","browse-gaming","browse-mischellanous","browse-furniture"]
 
 buttonIDS.forEach(id => {
     const button = document.getElementById(id);
@@ -428,3 +432,70 @@ buttonIDS.forEach(id => {
         })
     }
 });
+
+// Databse connection and fetching data
+
+// Function to fetch data from the database
+const category = geturl(window.location.href).replace(".html","");
+
+
+async function fetchProducts(category) {
+    
+    try{
+        const response =  await axios.get(`http://localhost:3000/${category}`);
+        const products =  response.data;
+    
+        const productCode = document.getElementById("product-code");
+        const productContainer = document.getElementById("product-items");
+
+        // Clear previous content
+        productContainer.innerHTML = "";
+
+        // Loop through products and dynamically generate HTML
+        products.forEach((product, index) => {
+            const productSegment = document.createElement("div");
+            productSegment.id = "product-segments";
+
+            productSegment.innerHTML = `
+                <div id="single-div">
+                    <div id="card-img">
+                        <img src="${product.image_src}" alt="${product.product_name}" id="item-img${index + 1} height="50px" ">
+                    </div>
+                    <div id="product-code">
+                        <p>Product Code: ${product.product_code}</p>
+                        <p>${product.rating} ⭐</p>
+                    </div>
+                    <div id="product-name${index + 1}">
+                        <h4>${product.product_name}</h4>
+                    </div>
+                    <div id="product-description">
+                        <p>${product.description}</p>
+                    </div>
+                </div>
+                <div id="product-price">
+                    <p id="item-price${index + 1}">$${product.price}</p>
+                    <p>$${product.price + 50}</p> <!-- Example Discount Price -->
+                </div>
+                <div id="product-cart">
+                    <button id="laptop-add${index + 1}">+</button>
+                    <input name="" id="laptop-number${index + 1}" value="0">
+                    <button id="laptop-remove${index + 1}">-</button>
+                    <button id="cart-item${index + 1}"><span> 🛒</span> Add to Cart</button>
+                </div>
+            `;
+
+            productContainer.appendChild(productSegment);
+        });
+
+    } catch (error) {
+        console.error("Error fetching products:", error);
+    }
+
+    
+    
+}
+document.addEventListener("DOMContentLoaded", () => {
+    fetchProducts(category);
+    // Call the function to fetch products when the page loads
+}
+);
