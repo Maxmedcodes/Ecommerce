@@ -95,3 +95,36 @@ UPDATE public."Phones&Tablets"
 SET image_src = './images/surface-tablet.jpg'
 WHERE product_name = 'Surface Pro Tablet';
 
+-- Adding Image src using CASE replicate for other tables
+UPDATE public."Pcs&Laptops"
+SET image_src = CASE
+    WHEN product_name = 'MacBook Gen2' THEN './images/Mac-laptop.jpg'
+    WHEN product_name = 'Samsung' THEN '/images/samsung-laptop.jpg'
+    WHEN product_name = 'Modern ArmChair' THEN './images/lenovo-laptop.jpg'
+    WHEN product_name = 'Dining Table and Chair' THEN './images/toshiba-pc.jpg'
+    WHEN product_name = 'Corner Sofa' THEN './images/Mac3-laptop.jpg'
+    WHEN product_name = 'Living Room Furniture Set' THEN './images/imac-pc.jpg'
+    ELSE image_src
+END;
+
+UPDATE public."Pcs&Laptops"
+SET image_src = CASE
+    WHEN product_name = 'MacBook Gen2' THEN './images/Mac-laptop.jpg'
+    WHEN product_name = 'Samsung Zn Laptop' THEN '/images/samsung-laptop.jpg'
+    WHEN product_name = 'Lenovo Laptop' THEN './images/lenovo-laptop.jpg'
+    WHEN product_name = 'Toshiba PC Set (with Speakers)' THEN './images/toshiba-pc.jpg'
+    WHEN product_name = 'MacBook Gen5' THEN './images/Mac3-laptop.jpg'
+    WHEN product_name = 'iMac' THEN './images/imac-pc.jpg'
+    ELSE image_src
+END;
+
+UPDATE public."Mischellanous"
+SET image_src = CASE
+    WHEN product_name = 'Apple Watch' THEN './images/applewatch.jpg'
+    WHEN product_name = 'Espresso Machine' THEN './images/cofee-machine.jpg'
+    WHEN product_name = 'Samsung Galaxy SmartWatch' THEN './images/smartwatch.jpg'
+    WHEN product_name = 'Xtron Drone' THEN './images/minidrone.jpg'
+    WHEN product_name = 'Set of DIY Tools' THEN './images/diy.jpg'
+    WHEN product_name = 'Drone Helicopter' THEN './images/helicopter.jpg'
+    ELSE image_src
+END;

@@ -465,8 +465,12 @@ footer li {
 /* Product Segments */
 #product-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    /* Allow wrapping to the next row */
+    gap: 20px;
+    /* Add spacing between items */
+    justify-content: space-between;
+    /* Distribute items evenly */
 }
 
 #products-title {
@@ -477,11 +481,20 @@ footer li {
 }
 
 #product-segments {
-    max-width: 400px;
-    border: 2px solid black;
-    border-radius: 4rem;
-    margin: 20px auto 10px auto;
-    padding: 10px;
+    flex: 1 1 calc(30% - 20px);
+    /* 3 items per row with spacing */
+    box-sizing: border-box;
+    /* Include padding and border in width */
+    max-width: calc(30% - 20px);
+    /* Ensure max width for 3 items */
+    margin: 20px;
+    /* Add spacing between rows */
+    border: 1px solid black;
+    /* Optional: Add a border for styling */
+    padding: 5px;
+    /* Optional: Add padding inside each item */
+    text-align: center;
+    /* Center-align content */
 }
 
 #product-segments img {
